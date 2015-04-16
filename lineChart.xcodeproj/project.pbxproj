@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D7CDE541ADFC01100647514 /* NSString+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CDE531ADFC01100647514 /* NSString+Draw.m */; };
 		B2B2C31F1974CBC6004314C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B2C31E1974CBC6004314C1 /* Foundation.framework */; };
 		B2B2C3211974CBC6004314C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B2C3201974CBC6004314C1 /* CoreGraphics.framework */; };
 		B2B2C3231974CBC6004314C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B2C3221974CBC6004314C1 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D7CDE521ADFC01100647514 /* NSString+Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Draw.h"; sourceTree = "<group>"; };
+		4D7CDE531ADFC01100647514 /* NSString+Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Draw.m"; sourceTree = "<group>"; };
 		B2B2C31B1974CBC6004314C1 /* lineChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lineChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B2C31E1974CBC6004314C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2B2C3201974CBC6004314C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +165,8 @@
 		B2B2C34D1974CC22004314C1 /* PNLineChart */ = {
 			isa = PBXGroup;
 			children = (
+				4D7CDE521ADFC01100647514 /* NSString+Draw.h */,
+				4D7CDE531ADFC01100647514 /* NSString+Draw.m */,
 				B2B2C3521974CC22004314C1 /* PNLineChartView.h */,
 				B2B2C3531974CC22004314C1 /* PNLineChartView.m */,
 				B2B2C3541974CC22004314C1 /* PNPlot.h */,
@@ -268,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2B2C3581974CC22004314C1 /* PNPlot.m in Sources */,
+				4D7CDE541ADFC01100647514 /* NSString+Draw.m in Sources */,
 				B2B2C35C1974DA04004314C1 /* PNTestViewController.m in Sources */,
 				B2B2C3571974CC22004314C1 /* PNLineChartView.m in Sources */,
 				B2B2C32F1974CBC6004314C1 /* PNAppDelegate.m in Sources */,
@@ -468,6 +474,7 @@
 				B2B2C3491974CBC6004314C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2B2C34A1974CBC6004314C1 /* Build configuration list for PBXNativeTarget "lineChartTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +483,7 @@
 				B2B2C34C1974CBC6004314C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
