@@ -47,7 +47,7 @@
         [yAxisValues addObject:str];
     }
     
-    self.lineChartView.xAxisValues = @[@"1", @"2", @"3",@"4", @"5", @"6",@"7", @"8", @"9",@"10", @"11"];
+    self.lineChartView.xAxisValues = @[@"1m摸", @"哈哈哈", @"尼玛",@"差", @"5", @"6",@"7", @"8", @"9",@"10", @"真的不行啊"];
     self.lineChartView.yAxisValues = yAxisValues;
     self.lineChartView.axisLeftLineWidth = 39;
     

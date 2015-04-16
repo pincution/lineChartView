@@ -25,8 +25,8 @@
 #import <math.h>
 #import <objc/runtime.h>
 #import <QuartzCore/QuartzCore.h>
-
-
+#import <UIKit/UIKit.h>
+#import "NSString+Draw.h"
 #pragma mark -
 #pragma mark MACRO
 
@@ -154,6 +154,7 @@
     CGContextScaleCTM(context, 1, -1);
     
     // set text size and font
+    CGFontRef font_ref =CGFontCreateWithFontName((CFStringRef)@"STHeitiTC-Medium");
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGContextSelectFont(context, [self.fontName UTF8String], self.xAxisFontSize, kCGEncodingMacRoman);
     
@@ -238,6 +239,7 @@
         }
         CGContextStrokePath(context);
         
+        CGFontRef font_ref =CGFontCreateWithFontName((CFStringRef)@"STHeitiTC-Medium");
         // draw labels;
         for (int i=0; i<pointLabelArray.count; i++) {
             NSNumber* value = [pointArray objectAtIndex:i];
@@ -252,15 +254,18 @@
                 }
             }
             
+            
             NSNumber* valueLabel = [pointLabelArray objectAtIndex:i];
             NSString* label = valueLabel.stringValue;
+            
             
             float height = (floatValue-self.min)/self.interval*self.horizontalLineInterval-self.contentScroll.y+startHeight+offset;
             float width =self.pointerInterval*(i+1)+self.contentScroll.x+ startWidth;
             
             if (width>startWidth){
-                NSInteger count = [label lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-                CGContextShowTextAtPoint(context, width-POINT_CIRCLE-5, height-POINT_CIRCLE/2, [label UTF8String], count);
+                [label drawWithBasePoint:CGPointMake(width-POINT_CIRCLE-5, height-POINT_CIRCLE/2) andAngle:0 andFont:[UIFont systemFontOfSize:10]];
+                
+                
             }
         }
         CGContextStrokePath(context);
@@ -288,7 +293,8 @@
 
         
         NSInteger count = [[self.xAxisValues objectAtIndex:i] lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-        CGContextShowTextAtPoint(context, width, height, [[self.xAxisValues objectAtIndex:i] UTF8String], count);
+        [[self.xAxisValues objectAtIndex:i] drawWithBasePoint:CGPointMake(width, height) andAngle:0 andFont:[UIFont systemFontOfSize:10]];
+        //CGContextShowTextAtPoint(context, width, height, [[self.xAxisValues objectAtIndex:i] UTF8String], count);
     }
     
 }
@@ -340,6 +346,7 @@
 {
     
 }
+
 
 
 @end
