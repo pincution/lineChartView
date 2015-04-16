@@ -54,7 +54,7 @@
     
     PNPlot *plot1 = [[PNPlot alloc] init];
     plot1.plottingValues = plottingDataValues1;
-    
+    plot1.plottingPointsLabels =  plottingDataValues1;
     plot1.lineColor = [UIColor blueColor];
     plot1.lineWidth = 0.5;
     

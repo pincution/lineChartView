@@ -192,6 +192,7 @@
         
         
         NSArray* pointArray = plot.plottingValues;
+        NSArray* pointLabelArray = plot.plottingPointsLabels;
         
         // draw lines
         for (int i=0; i<pointArray.count; i++) {
@@ -233,6 +234,33 @@
             
             if (width>startWidth){
                 CGContextFillEllipseInRect(context, CGRectMake(width-POINT_CIRCLE, height-POINT_CIRCLE/2, POINT_CIRCLE, POINT_CIRCLE));
+            }
+        }
+        CGContextStrokePath(context);
+        
+        // draw labels;
+        for (int i=0; i<pointLabelArray.count; i++) {
+            NSNumber* value = [pointArray objectAtIndex:i];
+            float floatValue = value.floatValue;
+            
+            float offset = 15;
+            if(i+1<+pointLabelArray.count){
+                NSNumber* valueNext = [pointArray objectAtIndex:i+1];
+                float floatValueNext = valueNext.floatValue;
+                if(floatValueNext>floatValue && floatValue >self.min){
+                    offset = -15;
+                }
+            }
+            
+            NSNumber* valueLabel = [pointLabelArray objectAtIndex:i];
+            NSString* label = valueLabel.stringValue;
+            
+            float height = (floatValue-self.min)/self.interval*self.horizontalLineInterval-self.contentScroll.y+startHeight+offset;
+            float width =self.pointerInterval*(i+1)+self.contentScroll.x+ startWidth;
+            
+            if (width>startWidth){
+                NSInteger count = [label lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+                CGContextShowTextAtPoint(context, width-POINT_CIRCLE-5, height-POINT_CIRCLE/2, [label UTF8String], count);
             }
         }
         CGContextStrokePath(context);
